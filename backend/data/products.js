@@ -1,7 +1,7 @@
 const products = [
     {
         _id: '1',
-        name: 'product1',
+        name: 'el producto 1',
         image: '/images/product1.jpg',
         description: 'description of product 1 for testing',
         brand: 'brand1',
@@ -14,7 +14,7 @@ const products = [
     },
     {
         _id: '2',
-        name: 'product2',
+        name: 'el producto 2',
         image: '/images/product2.jpg',
         description: 'description of product 2 for testing',
         brand: 'brand2',
