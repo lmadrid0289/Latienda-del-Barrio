@@ -7,7 +7,7 @@ import Product from './models/productModel.js'
 import User from './models/userModel.js'
 import Order from './models/orderModel.js'
 import connectDB from './config/db.js'
-import User from './models/userModel.js'
+
 
 dotenv.config()
 
@@ -16,14 +16,14 @@ connectDB()
 const importData = async () =>{
     try{
      await Order.deleteMany()
-     await Products.deleteMany()
+     await Product.deleteMany()
      await User.deleteMany()
 
      const createdUsers = await User.insertMany(users)
 
      const adminUser = createdUsers[0]._id
 
-     const sampleProducts = await Products.map(product => {
+     const sampleProducts = await products.map(product => {
          return{...product, user: adminUser}
      })
      await Product.insertMany(sampleProducts)
@@ -39,7 +39,7 @@ const importData = async () =>{
 const destroyData = async () =>{
     try{
      await Order.deleteMany()
-     await Products.deleteMany()
+     await Product.deleteMany()
      await User.deleteMany()
      
      console.log('Data Destroyed!'.red.inverse)
@@ -50,9 +50,9 @@ const destroyData = async () =>{
         process.exit()
     }
 }
-if(process.argv[2]=== '-d'){
+if(process.argv[2] === '-d'){
     destroyData()
 }else{
-     importData( )
+     importData()
 }
 
