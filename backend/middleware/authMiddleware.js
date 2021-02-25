@@ -6,7 +6,7 @@ const protect = AsyncHandler(async(req, res, next) => {
     let token 
 
 
-    if(req.headers.authorization && req.headers.authorization.startsWith('bearer'))
+    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
     {
         try {
             token = req.headers.authorization.split(' ')[1]
@@ -23,7 +23,7 @@ const protect = AsyncHandler(async(req, res, next) => {
 
     }
     if (!token){
-       
+       console.log('here')
         res.send(401)
         throw new Error('Not authorized, no token')
     }
